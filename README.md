@@ -6,6 +6,9 @@ This setup allows developers to simulate backend responses, test frontend functi
 
 🛠 Key Features:
 	•	Easy to set up and run locally
+	
 	•	Customizable API endpoints
+	
 	•	Supports JSON-based responses
+	
 	•	Useful for frontend testing, integration demos, and early-stage development
