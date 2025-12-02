@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OJT STORE — PST Edition</title>
+  <!-- Using 'Playfair Display' for elegance and 'Montserrat' for modern readability -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Rose Gold Luxury Theme Palette */
+      --bg: #ffffff;           /* Pure White */
+      --bg-surface: #fdfcfc;   /* Very subtle off-white for cards */
+      --text-main: #2d2a2a;    /* Warm Charcoal */
+      --text-muted: #888080;   /* Warm Grey */
+      
+      --primary: #C5908E;      /* Rose Gold */
+      --primary-hover: #a87270;
+      --accent: #fff5f5;       /* Very light rose tint for active states */
+      
+      --border: #f0ebeb;       /* Subtle warm borders */
+      --border-strong: #e6dcdb;
+      
+      --radius-xl: 0px;        /* Sharp corners for luxury feel */
+      --radius-lg: 0px;
+      --radius-md: 0px;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 15px -3px rgba(197, 144, 142, 0.15); /* Soft Rose Shadow */
+      --shadow-glow: 0 0 20px rgba(197, 144, 142, 0.25);
+      
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* --- Header --- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .links {
+      display: flex;
+      gap: 40px;
+      background: transparent;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    .link {
+      padding: 0;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 0;
+      transition: color 0.3s ease;
+      background: transparent;
+      border: none;
+    }
+    
+    .link:hover { color: var(--primary); background: transparent; }
+
+    .authBtn, .ghost {
+      padding: 12px 32px;
+      border-radius: 0px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid var(--primary);
+    }
+
+    .authBtn {
+      background: var(--primary);
+      color: #fff;
+    }
+    .authBtn:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    .ghost {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--border-strong);
+    }
+    .ghost:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--accent);
+    }
+
+    /* --- Hero --- */
+    .hero {
+      max-width: 1400px;
+      margin: 60px auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 40px;
+    }
+
+    .heroCard {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      padding: 80px 60px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Elegant texture overlay - subtle rose noise */
+    .heroCard::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--primary) 0.5px, transparent 0.5px);
+      background-size: 24px 24px;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .hero h2 {
+      font-family: var(--font-heading);
+      font-size: 52px;
+      font-weight: 400;
+      margin: 0 0 24px 0;
+      line-height: 1.1;
+      color: var(--text-main);
+    }
+    .hero h2 span {
+      color: var(--primary);
+      font-style: italic;
+    }
+    
+    .hero p { 
+      color: var(--text-muted); 
+      margin: 0; 
+      font-size: 16px; 
+      max-width: 480px; 
+      letter-spacing: 0.5px;
+      line-height: 1.8;
+    }
+
+    /* --- Layout --- */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto 100px;
+      padding: 0 40px;
+    }
+
+    .catLayout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .catSidebar {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      position: sticky;
+      top: 140px;
+      border-right: 1px solid var(--border);
+      padding-right: 30px;
+    }
+
+    .catTitle {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      color: var(--text-main);
+      margin: 0 0 40px 0;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .catItem {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 18px 0;
+      margin-bottom: 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      border-radius: 0;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .catItem:hover {
+      background: transparent;
+      color: var(--primary);
+      padding-left: 8px;
+    }
+    
+    .catItem.active {
+      background: transparent;
+      color: var(--primary);
+      font-weight: 700;
+      border-bottom: 1px solid var(--primary);
+      padding-left: 8px;
+    }
+
+    /* Subtabs */
+    .subTabs {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+    
+    .subBtn {
+      padding: 0 0 8px 0;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .subBtn:hover { color: var(--text-main); }
+    
+    .subBtn.active {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    #productHeading { 
+      font-family: var(--font-heading);
+      font-size: 36px; 
+      font-weight: 400; 
+      margin-bottom: 0;
+      color: var(--text-main);
+    }
+
+    /* --- Grid & Cards --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+      row-gap: 48px;
+    }
+
+    .card {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      position: relative;
+      border: none;
+      box-shadow: none;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .card:hover .imgWrap {
+      border-color: var(--primary);
+    }
+
+    .imgWrap {
+      height: 280px; /* REDUCED HEIGHT - Was 420px */
+      background: #fcfcfc;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.4s ease;
+      position: relative;
+    }
+    
+    .imgWrap img {
+      max-width: 100%;
+      height: 100%;
+      object-fit: contain; /* Changed to CONTAIN so images don't get cut off */
+      padding: 20px; /* Add breathing room for the image */
+      transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      filter: sepia(10%) contrast(95%);
+    }
+    
+    .card:hover .imgWrap img { 
+      transform: scale(1.05); 
+      filter: sepia(0%) contrast(100%);
+    }
+
+    .title {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 18px;
+      margin-bottom: 4px;
+      white-space: nowrap; /* Prevent wrapping for cleaner look */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text-main);
+      letter-spacing: 0.5px;
+    }
+    
+    .muted { color: var(--text-muted); font-size: 12px; letter-spacing: 0.5px; }
+    
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-top: 2px;
+      margin-bottom: 12px;
+    }
+    
+    /* Fixed Actions Styling */
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Two buttons side by side */
+      gap: 12px;
+      margin-top: auto; /* Pushes to bottom */
+      opacity: 1; /* Always visible */
+      transform: none;
+    }
+    
+    .actions button {
+      width: 100%;
+      margin-top: 0;
+      padding: 10px 0;
+      font-size: 11px;
+      background: white; 
+      color: var(--primary);
+      border: 1px solid var(--border-strong);
+    }
+    
+    .actions button.authBtn {
+        background: var(--primary);
+        color: white;
+        border: 1px solid var(--primary);
+    }
+    
+    .actions button:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .card {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      position: relative;
+      border: none;
+      box-shadow: none;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .card:hover .imgWrap {
+      border-color: var(--primary);
+    }
+
+    .imgWrap {
+      height: 420px;
+      background: #fcfcfc;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.4s ease;
+      position: relative;
+    }
+    
+    .imgWrap img {
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      /* Subtle sepia/warmth filter for the rose gold theme */
+      filter: sepia(10%) contrast(95%);
+    }
+    
+    .card:hover .imgWrap img { 
+      transform: scale(1.03); 
+      filter: sepia(0%) contrast(100%);
+    }
+
+    .title {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 20px;
+      margin-bottom: 8px;
+      white-space: normal;
+      color: var(--text-main);
+      letter-spacing: 0.5px;
+    }
+    
+    .muted { color: var(--text-muted); font-size: 13px; letter-spacing: 0.5px; }
+    
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-top: 10px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+    
+    .card:hover .actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .actions button {
+      width: 100%;
+      margin-top: 8px;
+      background: white; /* Contrast for hover buttons */
+      color: var(--primary);
+    }
+    .actions button:hover {
+        background: var(--primary);
+        color: white;
+    }
+
+    /* --- Modals --- */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .overlay.show { display: flex; animation: fadeIn 0.4s ease-out; }
+    
+    .backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal {
+      position: relative;
+      background: #fff;
+      width: 95%;
+      max-width: 1200px;
+      border-radius: 0;
+      padding: 0;
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 0;
+      z-index: 201;
+      animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 30px 60px -15px rgba(197, 144, 142, 0.25);
+    }
+    
+    .modal-img-container {
+      background: #faf9f9;
+      height: 100%;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+      padding: 60px;
+    }
+
+    .modal-content-container {
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .authForm {
+      position: relative;
+      background: #fff;
+      width: 100%;
+      max-width: 480px;
+      padding: 60px;
+      border-radius: 0;
+      border: 1px solid var(--primary);
+      z-index: 201;
+      animation: slideUp 0.3s ease;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Form Fields */
+    .field { margin-bottom: 28px; }
+    .field label { display: block; font-size: 11px; font-weight: 700; margin-bottom: 10px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
+    .field input {
+      width: 100%;
+      padding: 12px 0;
+      border: none;
+      border-bottom: 1px solid var(--border-strong);
+      border-radius: 0;
+      background: transparent;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s;
+    }
+    .field input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Cart */
+    .cartCard {
+      background: #fff;
+      padding: 24px;
+      border-radius: 0;
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      transition: border-color 0.3s;
+    }
+    .cartCard:hover {
+        border-color: var(--primary);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #fff;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 18px 36px;
+      border-radius: 0;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 15px 30px rgba(197, 144, 142, 0.2);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 300;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    /* Responsive */
+    @media(max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; padding: 0 24px; margin: 40px auto; }
+      .nav { padding: 20px 24px; }
+      .container { padding: 0 24px; }
+    }
+    @media(max-width: 768px) {
+      .catLayout { grid-template-columns: 1fr; gap: 40px; }
+      .catSidebar { 
+        position: static; 
+        margin-bottom: 30px; 
+        display: flex; 
+        overflow-x: auto; 
+        padding: 0 0 10px 0; 
+        gap: 20px; 
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .catItem { width: auto; white-space: nowrap; border: none; padding: 0; opacity: 0.6; }
+      .catItem.active { border: none; opacity: 1; padding: 0; color: var(--primary); }
+      .modal { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
+      .modal-img-container { min-height: 300px; border-right: none; border-bottom: 1px solid var(--border); }
+      .links { display: none; } 
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="#" class="brand">
+        <div class="logo">OJT</div>
+        <div>
+          <div style="font-family:var(--font-heading); font-weight:700; font-size:22px; line-height:1; letter-spacing:1px; color:var(--text-main);">OJT STORE</div>
+          <div style="font-size:10px; color:var(--primary); text-transform:uppercase; letter-spacing:3px; margin-top:4px;">PST Edition</div>
+        </div>
+      </a>
+      <div class="links">
+        <button class="link" id="navHome">Collections</button>
+        <button class="link" id="navCart">Cart (<span id="cartCount">0</span>)</button>
+      </div>
+      <div style="display:flex; align-items:center; gap:24px;">
+        <div id="greet" style="font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);"></div>
+        <button id="btnAuth" class="authBtn">Sign in</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="heroCard">
+      <h2>Curated Excellence.<br><span>Timeless Experience.</span></h2>
+      <p>Immerse yourself in a world of refined aesthetics. A curated selection of premium goods.</p>
+    </div>
+
+    <div class="heroCard" style="background: #fff0f0; border-color: #f2dcd9;">
+      <h3 style="margin:0 0 16px; font-family:var(--font-heading); font-weight:400; font-size:24px; color:var(--primary); font-style:italic;"> PST Members Only</h3>
+      <p style="opacity:0.8; margin:0 0 20px; font-size:14px; color:var(--text-main);">Experience the privilege of persistence. Sign in to synchronize your curated selection across all your devices.</p>
+      <div style="font-size:11px; opacity:0.8; letter-spacing:2px; text-transform:uppercase; display:flex; gap:20px; color:var(--text-main);">
+        <span>• Secure Vault</span>
+        <span>• Global Sync</span>
+        <span>• VIP Access</span>
+      </div>
+    </div>
+  </main>
+
+  <section class="container" id="view-products">
+    <div class="catLayout">
+      <aside class="catSidebar">
+        <h3 class="catTitle">Collections</h3>
+        <div id="categoryList"></div>
+      </aside>
+      <div class="catMain">
+        <div id="subcategories" class="subTabs"></div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--border); padding-bottom:16px; margin-bottom:60px;">
+            <h3 id="productHeading">All Products</h3>
+            <span class="muted" style="text-transform:uppercase; font-size:11px; letter-spacing:1px;">Exquisite Selection</span>
+        </div>
+        <div id="productList" class="grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="view-cart" style="display:none; max-width:900px;">
+    <h3 style="margin:20px 0 40px; font-family:var(--font-heading); font-size:42px; font-weight:400; text-align:center; color:var(--text-main); font-style:italic;">Your Selection</h3>
+    <div id="cartList"></div>
+    <div id="cartEmpty" class="center muted" style="display:none; padding:100px; text-align:center; background:#fff; border:1px solid var(--border);">
+        <div style="font-size:32px; margin-bottom:20px; color:var(--primary);">❖</div>
+        <div style="text-transform:uppercase; letter-spacing:3px; font-size:13px;">Your collection is currently empty</div>
+    </div>
+    <div style="margin-top:60px; display:flex; justify-content:flex-end; gap:24px;">
+      <button class="ghost" id="btnClear">Clear Selection</button>
+      <button class="authBtn" id="btnCheckout" style="padding:16px 48px;">Acquire Items</button>
+    </div>
+  </section>
+
+  <!-- Product Modal -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="backdrop" id="backdrop"></div>
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-img-container">
+        <img id="modalImage" src="" alt="product image" style="max-width:100%; max-height:100%; object-fit:contain;"/>
+      </div>
+      <div class="modal-content-container">
+        <div class="muted" id="modalCategory" style="font-size:11px; text-transform:uppercase; letter-spacing:3px; margin-bottom:16px; color:var(--primary);"></div>
+        <h3 id="modalTitle" style="font-family:var(--font-heading); font-size:42px; margin:0 0 16px; line-height:1.1; font-weight:400; font-style:italic;"></h3>
+        <div style="margin-bottom:24px; font-size:32px; font-weight:400; color:var(--text-main); font-family:var(--font-heading);" id="modalPrice"></div>
+        <div style="width:60px; height:1px; background:var(--primary); margin-bottom:32px;"></div>
+        <p id="modalDesc" class="muted" style="margin-bottom:48px; font-size:16px; line-height:1.9; color:var(--text-muted);"></p>
+        <div style="display:flex; gap:24px;">
+            <button id="modalAdd" class="authBtn" style="flex:1;">Add to Collection</button>
+            <button id="modalClose" class="ghost">Dismiss</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Firebase Auth) -->
+  <div id="authOverlay" class="overlay" aria-hidden="true">
+    <div class="backdrop" id="authBackdrop"></div>
+    <div class="authForm" role="dialog" aria-modal="true">
+      <h3 id="authTitle" style="text-align:center; margin-bottom:50px; font-family:var(--font-heading); font-size:32px; font-weight:400; color:var(--primary); font-style:italic;">Access Account</h3>
+      <div id="authArea">
+        <div id="signInForm">
+          <div class="field"><label>Email Identification</label><input id="siEmail" type="email" placeholder="name@domain.com" /></div>
+          <div class="field"><label>Passcode</label><input id="siPassword" type="password" placeholder="••••••••" /></div>
+          <div style="display:grid; gap:20px; margin-top:50px;">
+            <button id="doSignIn" class="authBtn" style="width:100%">Authenticate</button>
+            <button id="btnGoogle" class="ghost" style="width:100%;">Access with Google</button>
+          </div>
+          <div style="margin-top:40px; text-align:center; font-size:12px; letter-spacing:1px;">
+              <span class="muted">Not a member?</span> <button id="showSignUp" style="background:none; border:none; color:var(--primary); font-weight:600; cursor:pointer; text-transform:uppercase; letter-spacing:1px; margin-left:8px;">Request Access</button>
+          </div>
+          <div id="siError" style="color:#ef4444; font-size:12px; margin-top:20px; text-align:center;"></div>
+        </div>
+        <div id="signUpForm" style="display:none">
+          <div class="field"><label>Full Title</label><input id="suName" type="text" placeholder="Your Name" /></div>
+          <div class="field"><label>Email Identification</label><input id="suEmail" type="email" placeholder="name@domain.com" /></div>
+          <div class="field"><label>Passcode</label><input id="suPassword" type="password" placeholder="Create passcode" /></div>
+          <div style="display:grid; gap:20px; margin-top:50px;">
+             <button id="doSignUp" class="authBtn">Register Account</button>
+             <button id="showSignIn" class="ghost">Return to Sign In</button>
+          </div>
+          <div id="suError" style="color:#ef4444; font-size:12px; margin-top:20px; text-align:center;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logic Script (No Changes to Logic) -->
+  <script type="module">
+    // --- Firebase config (replace with your own) ---
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    // UI refs
+    const authOverlay = document.getElementById('authOverlay');
+    const authBackdrop = document.getElementById('authBackdrop');
+    const btnAuth = document.getElementById('btnAuth');
+    const greet = document.getElementById('greet');
+    const signInForm = document.getElementById('signInForm');
+    const signUpForm = document.getElementById('signUpForm');
+    const showSignUp = document.getElementById('showSignUp');
+    const showSignIn = document.getElementById('showSignIn');
+    const doSignIn = document.getElementById('doSignIn');
+    const doSignUp = document.getElementById('doSignUp');
+    const siEmail = document.getElementById('siEmail');
+    const siPassword = document.getElementById('siPassword');
+    const suName = document.getElementById('suName');
+    const suEmail = document.getElementById('suEmail');
+    const suPassword = document.getElementById('suPassword');
+    const siError = document.getElementById('siError');
+    const suError = document.getElementById('suError');
+    const btnGoogle = document.getElementById('btnGoogle');
+
+    function openAuth(){ authOverlay.classList.add('show'); authOverlay.setAttribute('aria-hidden','false'); }
+    function closeAuth(){ authOverlay.classList.remove('show'); authOverlay.setAttribute('aria-hidden','true'); }
+    authBackdrop.addEventListener('click', closeAuth);
+
+    let currentUser = null;
+
+    btnAuth.addEventListener('click', ()=>{
+      if(currentUser){
+        if(confirm('Sign out?')) signOut(auth);
+      } else {
+        openAuth();
+      }
+    });
+
+    showSignUp.addEventListener('click', ()=>{
+      signInForm.style.display='none';
+      signUpForm.style.display='block';
+      document.getElementById('authTitle').textContent='Request Access';
+    });
+    showSignIn.addEventListener('click', ()=>{
+      signInForm.style.display='block';
+      signUpForm.style.display='none';
+      document.getElementById('authTitle').textContent='Access Account';
+    });
+
+    // email/password sign up
+    doSignUp.addEventListener('click', async ()=>{
+      suError.textContent='';
+      const name=suName.value.trim();
+      const email=suEmail.value.trim().toLowerCase();
+      const pwd=suPassword.value;
+      if(!name||!email||!pwd){ suError.textContent='Please fill all fields'; return }
+      try{
+        const res = await createUserWithEmailAndPassword(auth, email, pwd);
+        await updateProfile(res.user, { displayName: name });
+        closeAuth();
+      }catch(err){ suError.textContent = err.message }
+    });
+
+    // email/password sign in
+    doSignIn.addEventListener('click', async ()=>{
+      siError.textContent='';
+      const email=siEmail.value.trim().toLowerCase();
+      const pwd=siPassword.value;
+      if(!email||!pwd){ siError.textContent='Please fill email and password'; return }
+      try{
+        await signInWithEmailAndPassword(auth, email, pwd);
+        closeAuth();
+      }catch(err){ siError.textContent = err.message }
+    });
+
+    // google sign in
+    btnGoogle.addEventListener('click', async ()=>{
+      try{
+        await signInWithPopup(auth, provider);
+        closeAuth();
+      }catch(err){ siError.textContent = err.message }
+    });
+
+    onAuthStateChanged(auth, user=>{
+      currentUser = user;
+      if(user){
+        greet.textContent = 'Welcome, ' + (user.displayName || user.email.split('@')[0]);
+        btnAuth.textContent='Sign Out';
+        syncCartForUser();
+      } else {
+        greet.textContent='';
+        btnAuth.textContent='Sign In';
+      }
+    });
+
+    // --- product modal logic ---
+    const overlay = document.getElementById('overlay');
+    const backdrop = document.getElementById('backdrop');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalAdd = document.getElementById('modalAdd');
+    const modalClose = document.getElementById('modalClose');
+
+    function openModal(p){
+      modalImage.src=p.image;
+      modalTitle.textContent=p.title;
+      modalPrice.textContent='₹ '+p.price.toLocaleString();
+      modalDesc.textContent=p.description;
+      modalCategory.textContent=p.category;
+      modalAdd.onclick = ()=>{ addToCart(p); closeModal(); };
+      modalClose.onclick = closeModal;
+      overlay.classList.add('show');
+      overlay.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      overlay.classList.remove('show');
+      overlay.setAttribute('aria-hidden','true');
+    }
+    backdrop.addEventListener('click', closeModal);
+
+    // --- product data ---
+    const categoryData = {
+      "1": { // Electronics
+        name: "Electronics",
+        subcategories: {
+          "1": {
+            name: "Laptops",
+            products: [
+              { id: 1001, name: "Dell Inspiron 15", price: 45000, originalPrice: 55000, discount: "18% off", rating: 4.5, inStock: true, specs: "Intel i5, 8GB RAM, 512GB SSD" },
+              { id: 1002, name: "HP Pavilion", price: 48000, originalPrice: 60000, discount: "20% off", rating: 4.3, inStock: true, specs: "Intel i5, 16GB RAM, 1TB SSD" },
+              { id: 1003, name: "Lenovo ThinkPad", price: 55000, originalPrice: 70000, discount: "21% off", rating: 4.7, inStock: true, specs: "Intel i7, 16GB RAM, 512GB SSD" },
+              { id: 1004, name: "Asus VivoBook", price: 42000, originalPrice: 52000, discount: "19% off", rating: 4.4, inStock: false, specs: "AMD Ryzen 5, 8GB RAM, 512GB SSD" }
+            ]
+          },
+          "2": {
+            name: "Headphones",
+            products: [
+              { id: 1011, name: "Sony WH-1000XM4", price: 25000, originalPrice: 30000, discount: "17% off", rating: 4.8, inStock: true, specs: "Noise Cancelling, Bluetooth" },
+              { id: 1012, name: "Bose QuietComfort", price: 28000, originalPrice: 32000, discount: "13% off", rating: 4.7, inStock: true, specs: "Active Noise Cancelling" },
+              { id: 1013, name: "JBL Tune 750", price: 5000, originalPrice: 7000, discount: "29% off", rating: 4.2, inStock: true, specs: "Wireless, 15hr Battery" }
+            ]
+          },
+          "3": {
+            name: "Cameras",
+            products: [
+              { id: 1021, name: "Canon EOS 1500D", price: 35000, originalPrice: 42000, discount: "17% off", rating: 4.6, inStock: true, specs: "24MP, DSLR, WiFi" },
+              { id: 1022, name: "Nikon D3500", price: 32000, originalPrice: 38000, discount: "16% off", rating: 4.5, inStock: true, specs: "24MP, DSLR, Bluetooth" },
+              { id: 1023, name: "Sony Alpha A6000", price: 45000, originalPrice: 55000, discount: "18% off", rating: 4.7, inStock: false, specs: "24MP, Mirrorless" }
+            ]
+          }
+        }
+      },
+      "2": { // Clothing Store
+        name: "Apparel",
+        subcategories: {
+          "1": {
+            name: "Men's Collection",
+            products: [
+              { id: 2001, name: "Winter Sweater", price: 700, originalPrice: 1200, discount: "42% off", rating: 4.5, inStock: true, sizes: ["S", "M", "L", "XL", "XXL"] },
+              { id: 2002, name: "Casual T-Shirt", price: 299, originalPrice: 599, discount: "50% off", rating: 4.2, inStock: true, sizes: ["S", "M", "L", "XL"] },
+              { id: 2003, name: "Formal Shirt", price: 899, originalPrice: 1499, discount: "40% off", rating: 4.7, inStock: true, sizes: ["M", "L", "XL", "XXL"] },
+              { id: 2004, name: "Denim Jeans", price: 1299, originalPrice: 2499, discount: "48% off", rating: 4.6, inStock: true, sizes: ["30", "32", "34", "36", "38"] }
+            ]
+          },
+          "2": {
+            name: "Women's Collection",
+            products: [
+              { id: 2011, name: "Designer Kurti", price: 599, originalPrice: 1200, discount: "50% off", rating: 4.6, inStock: true, sizes: ["S", "M", "L", "XL"] },
+              { id: 2012, name: "Silk Saree", price: 1999, originalPrice: 3500, discount: "43% off", rating: 4.8, inStock: true, sizes: ["Free Size"] },
+              { id: 2013, name: "Evening Dress", price: 899, originalPrice: 1800, discount: "50% off", rating: 4.4, inStock: true, sizes: ["S", "M", "L"] },
+              { id: 2014, name: "Comfort Leggings", price: 299, originalPrice: 599, discount: "50% off", rating: 4.3, inStock: true, sizes: ["S", "M", "L", "XL"] }
+            ]
+          },
+          "3": {
+            name: "Infant Wear",
+            products: [
+              { id: 2021, name: "Baby Romper", price: 399, originalPrice: 799, discount: "50% off", rating: 4.7, inStock: true, sizes: ["0-3M", "3-6M", "6-12M"] },
+              { id: 2022, name: "Baby Dress", price: 499, originalPrice: 999, discount: "50% off", rating: 4.5, inStock: true, sizes: ["0-3M", "3-6M", "6-12M"] },
+              { id: 2023, name: "Baby Onesie Set", price: 699, originalPrice: 1299, discount: "46% off", rating: 4.6, inStock: true, sizes: ["0-3M", "3-6M"] }
+            ]
+          }
+        }
+      },
+      "3": { // TV & Appliances
+        name: "Home Electronics",
+        subcategories: {
+          "1": {
+            name: "Televisions",
+            products: [
+              { id: 3001, name: "Samsung 43\" 4K Smart TV", price: 35000, originalPrice: 45000, discount: "22% off", rating: 4.5, inStock: true, specs: "4K UHD, Smart TV, HDR" },
+              { id: 3002, name: "LG 55\" OLED TV", price: 85000, originalPrice: 120000, discount: "29% off", rating: 4.8, inStock: true, specs: "OLED, 4K, Dolby Vision" },
+              { id: 3003, name: "Sony Bravia 50\" LED", price: 55000, originalPrice: 70000, discount: "21% off", rating: 4.6, inStock: false, specs: "4K, Android TV" }
+            ]
+          },
+          "2": {
+            name: "Refrigerators",
+            products: [
+              { id: 3011, name: "Samsung Double Door 260L", price: 25000, originalPrice: 32000, discount: "22% off", rating: 4.4, inStock: true, specs: "260L, Frost Free" },
+              { id: 3012, name: "LG Single Door 190L", price: 15000, originalPrice: 20000, discount: "25% off", rating: 4.3, inStock: true, specs: "190L, Direct Cool" },
+              { id: 3013, name: "Whirlpool Triple Door 330L", price: 35000, originalPrice: 45000, discount: "22% off", rating: 4.6, inStock: true, specs: "330L, Frost Free" }
+            ]
+          },
+          "3": {
+            name: "Washing Machines",
+            products: [
+              { id: 3021, name: "IFB Front Load 6kg", price: 22000, originalPrice: 28000, discount: "21% off", rating: 4.5, inStock: true, specs: "6kg, Front Load, 1000 RPM" },
+              { id: 3022, name: "Samsung Top Load 7kg", price: 18000, originalPrice: 24000, discount: "25% off", rating: 4.4, inStock: true, specs: "7kg, Top Load" },
+              { id: 3023, name: "LG Fully Automatic 8kg", price: 25000, originalPrice: 32000, discount: "22% off", rating: 4.6, inStock: false, specs: "8kg, Fully Automatic" }
+            ]
+          }
+        }
+      },
+      "4": { // Smartphones
+        name: "Smartphones",
+        subcategories: {
+          "1": {
+            name: "Android Flagships",
+            products: [
+              { id: 4001, name: "Samsung Galaxy S23", price: 65000, originalPrice: 80000, discount: "19% off", rating: 4.7, inStock: true, specs: "8GB RAM, 128GB, 5G" },
+              { id: 4002, name: "OnePlus 11", price: 55000, originalPrice: 65000, discount: "15% off", rating: 4.6, inStock: true, specs: "12GB RAM, 256GB, 5G" },
+              { id: 4003, name: "Xiaomi 13 Pro", price: 60000, originalPrice: 75000, discount: "20% off", rating: 4.5, inStock: true, specs: "12GB RAM, 256GB, 5G" },
+              { id: 4004, name: "Realme GT 3", price: 35000, originalPrice: 45000, discount: "22% off", rating: 4.4, inStock: false, specs: "8GB RAM, 128GB, 5G" }
+            ]
+          },
+          "2": {
+            name: "Apple iPhone",
+            products: [
+              { id: 4011, name: "iPhone 14", price: 70000, originalPrice: 80000, discount: "13% off", rating: 4.8, inStock: true, specs: "128GB, A15 Bionic, 5G" },
+              { id: 4012, name: "iPhone 14 Pro", price: 120000, originalPrice: 135000, discount: "11% off", rating: 4.9, inStock: true, specs: "256GB, A16 Bionic, 5G" },
+              { id: 4013, name: "iPhone 13", price: 55000, originalPrice: 65000, discount: "15% off", rating: 4.7, inStock: true, specs: "128GB, A15 Bionic" }
+            ]
+          },
+          "3": {
+            name: "Value Phones",
+            products: [
+              { id: 4021, name: "Redmi Note 12", price: 15000, originalPrice: 20000, discount: "25% off", rating: 4.3, inStock: true, specs: "6GB RAM, 128GB, 4G" },
+              { id: 4022, name: "Samsung Galaxy M14", price: 12000, originalPrice: 16000, discount: "25% off", rating: 4.2, inStock: true, specs: "4GB RAM, 64GB, 4G" },
+              { id: 4023, name: "Realme Narzo 50", price: 13000, originalPrice: 18000, discount: "28% off", rating: 4.4, inStock: true, specs: "6GB RAM, 128GB, 4G" }
+            ]
+          }
+        }
+      },
+      "5": { // Kitchen Ware
+        name: "Culinary",
+        subcategories: {
+          "1": {
+            name: "Cookware",
+            products: [
+              { id: 5001, name: "Non-Stick Tawa", price: 599, originalPrice: 1200, discount: "50% off", rating: 4.4, inStock: true, specs: "28cm, Non-Stick Coating" },
+              { id: 5002, name: "Pressure Cooker 5L", price: 1299, originalPrice: 2000, discount: "35% off", rating: 4.6, inStock: true, specs: "5L, Aluminum, ISI Certified" },
+              { id: 5003, name: "Kadhai Set", price: 899, originalPrice: 1800, discount: "50% off", rating: 4.3, inStock: true, specs: "3 Piece Set, Non-Stick" }
+            ]
+          },
+          "2": {
+            name: "Appliances",
+            products: [
+              { id: 5011, name: "Mixer Grinder", price: 2500, originalPrice: 4000, discount: "38% off", rating: 4.5, inStock: true, specs: "750W, 3 Jars" },
+              { id: 5012, name: "Electric Kettle", price: 899, originalPrice: 1500, discount: "40% off", rating: 4.4, inStock: true, specs: "1.8L, Auto Shut-off" },
+              { id: 5013, name: "Toaster", price: 1299, originalPrice: 2000, discount: "35% off", rating: 4.3, inStock: true, specs: "2 Slice, 800W" }
+            ]
+          },
+          "3": {
+            name: "Dinnerware",
+            products: [
+              { id: 5021, name: "Dinner Set 24 Pieces", price: 1999, originalPrice: 4000, discount: "50% off", rating: 4.6, inStock: true, specs: "Ceramic, Microwave Safe" },
+              { id: 5022, name: "Glass Set 6 Pieces", price: 399, originalPrice: 800, discount: "50% off", rating: 4.4, inStock: true, specs: "Transparent, 300ml" },
+              { id: 5023, name: "Steel Plates Set", price: 899, originalPrice: 1500, discount: "40% off", rating: 4.5, inStock: true, specs: "Stainless Steel, 6 Pieces" }
+            ]
+          }
+        }
+      },
+      "6": { // Home Decor
+        name: "Decor",
+        subcategories: {
+          "1": {
+            name: "Wall Art",
+            products: [
+              { id: 6001, name: "Canvas Painting Set", price: 1299, originalPrice: 2500, discount: "48% off", rating: 4.5, inStock: true, specs: "3 Piece Set, Modern Art" },
+              { id: 6002, name: "Wall Clock", price: 599, originalPrice: 1200, discount: "50% off", rating: 4.4, inStock: true, specs: "12 inch, Silent Movement" },
+              { id: 6003, name: "Photo Frames Set", price: 799, originalPrice: 1500, discount: "47% off", rating: 4.3, inStock: true, specs: "5 Piece Set, Wooden" }
+            ]
+          },
+          "2": {
+            name: "Lighting",
+            products: [
+              { id: 6011, name: "LED Ceiling Light", price: 1499, originalPrice: 2500, discount: "40% off", rating: 4.6, inStock: true, specs: "24W, Cool White" },
+              { id: 6012, name: "Table Lamp", price: 899, originalPrice: 1500, discount: "40% off", rating: 4.4, inStock: true, specs: "Wooden Base, E27 Holder" },
+              { id: 6013, name: "String Lights", price: 399, originalPrice: 800, discount: "50% off", rating: 4.5, inStock: true, specs: "10m, Warm White, USB" }
+            ]
+          },
+          "3": {
+            name: "Soft Furnishings",
+            products: [
+              { id: 6021, name: "Cushion Covers Set", price: 599, originalPrice: 1200, discount: "50% off", rating: 4.4, inStock: true, specs: "5 Piece Set, Cotton" },
+              { id: 6022, name: "Door Curtains", price: 899, originalPrice: 1800, discount: "50% off", rating: 4.5, inStock: true, specs: "7ft, Polyester, 2 Pieces" },
+              { id: 6023, name: "Bedsheet Set", price: 1299, originalPrice: 2500, discount: "48% off", rating: 4.6, inStock: true, specs: "Double Bed, Cotton, 3 Pieces" }
+            ]
+          }
+        }
+      }
+    };
+
+    const productImages = {
+      // Electronics - Laptops
+      1001: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600',
+      1002: 'https://images.pexels.com/photos/374074/pexels-photo-374074.jpeg?auto=compress&cs=tinysrgb&w=600',
+      1003: 'https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600',
+      1004: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Electronics - Headphones
+      1011: 'https://images.pexels.com/photos/3394666/pexels-photo-3394666.jpeg?auto=compress&cs=tinysrgb&w=600',
+      1012: 'https://images.pexels.com/photos/577769/pexels-photo-577769.jpeg?auto=compress&cs=tinysrgb&w=600',
+      1013: 'https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Electronics - Cameras
+      1021: 'https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=600',
+      1022: 'https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=600',
+      1023: 'https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Clothing - Men
+      2001: 'https://images.pexels.com/photos/450212/pexels-photo-450212.jpeg?auto=compress&cs=tinysrgb&w=600',
+      2002: 'https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=600',
+      2003: 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=600',
+      2004: 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Clothing - Women (Matched Products)
+      2011: 'https://images.pexels.com/photos/16158164/pexels-photo-16158164.jpeg?auto=compress&cs=tinysrgb&w=600', // Designer Kurti
+      2012: 'https://images.pexels.com/photos/5709661/pexels-photo-5709661.jpeg?auto=compress&cs=tinysrgb&w=600', // Silk Saree (Fixed)
+      2013: 'https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=600', // Evening Dress
+      2014: 'https://images.pexels.com/photos/4056428/pexels-photo-4056428.jpeg?auto=compress&cs=tinysrgb&w=600', // Comfort Leggings
+
+      // Clothing - Baby
+      2021: 'https://images.pexels.com/photos/3845492/pexels-photo-3845492.jpeg?auto=compress&cs=tinysrgb&w=600',
+      2022: 'https://images.pexels.com/photos/3663013/pexels-photo-3663013.jpeg?auto=compress&cs=tinysrgb&w=600',
+      2023: 'https://images.pexels.com/photos/459957/pexels-photo-459957.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // TV
+      3001: 'https://images.pexels.com/photos/6976094/pexels-photo-6976094.jpeg?auto=compress&cs=tinysrgb&w=600',
+      3002: 'https://images.pexels.com/photos/4009402/pexels-photo-4009402.jpeg?auto=compress&cs=tinysrgb&w=600',
+      3003: 'https://images.pexels.com/photos/5202925/pexels-photo-5202925.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Appliances
+      3011: 'https://images.pexels.com/photos/5807032/pexels-photo-5807032.jpeg?auto=compress&cs=tinysrgb&w=600',
+      3012: 'https://images.pexels.com/photos/2343467/pexels-photo-2343467.jpeg?auto=compress&cs=tinysrgb&w=600',
+      3013: 'https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?auto=compress&cs=tinysrgb&w=600',
+      3021: 'https://images.pexels.com/photos/5591585/pexels-photo-5591585.jpeg?auto=compress&cs=tinysrgb&w=600',
+      3022: 'https://images.pexels.com/photos/8774497/pexels-photo-8774497.jpeg?auto=compress&cs=tinysrgb&w=600',
+      3023: 'https://images.pexels.com/photos/12398242/pexels-photo-12398242.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Smartphones - Android
+      4001: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=600',
+      4002: 'https://images.pexels.com/photos/13768822/pexels-photo-13768822.jpeg?auto=compress&cs=tinysrgb&w=600',
+      4003: 'https://images.pexels.com/photos/47261/pexels-photo-47261.jpeg?auto=compress&cs=tinysrgb&w=600',
+      4004: 'https://images.pexels.com/photos/14555805/pexels-photo-14555805.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Smartphones - iPhone
+      4011: 'https://images.pexels.com/photos/1294886/pexels-photo-1294886.jpeg?auto=compress&cs=tinysrgb&w=600',
+      4012: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=600',
+      4013: 'https://images.pexels.com/photos/4065906/pexels-photo-4065906.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Smartphones - Budget
+      4021: 'https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=600',
+      4022: 'https://images.pexels.com/photos/892757/pexels-photo-892757.jpeg?auto=compress&cs=tinysrgb&w=600',
+      4023: 'https://images.pexels.com/photos/12586043/pexels-photo-12586043.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Kitchen
+      5001: 'https://images.pexels.com/photos/4552135/pexels-photo-4552135.jpeg?auto=compress&cs=tinysrgb&w=600',
+      5002: 'https://images.pexels.com/photos/5806659/pexels-photo-5806659.jpeg?auto=compress&cs=tinysrgb&w=600',
+      5003: 'https://images.pexels.com/photos/5908226/pexels-photo-5908226.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      5011: 'https://images.pexels.com/photos/5061266/pexels-photo-5061266.jpeg?auto=compress&cs=tinysrgb&w=600',
+      5012: 'https://images.pexels.com/photos/4226876/pexels-photo-4226876.jpeg?auto=compress&cs=tinysrgb&w=600',
+      5013: 'https://images.pexels.com/photos/6605051/pexels-photo-6605051.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      5021: 'https://images.pexels.com/photos/6294436/pexels-photo-6294436.jpeg?auto=compress&cs=tinysrgb&w=600',
+      5022: 'https://images.pexels.com/photos/15239920/pexels-photo-15239920.jpeg?auto=compress&cs=tinysrgb&w=600',
+      5023: 'https://images.pexels.com/photos/420233/pexels-photo-420233.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      // Decor
+      6001: 'https://images.pexels.com/photos/1957478/pexels-photo-1957478.jpeg?auto=compress&cs=tinysrgb&w=600',
+      6002: 'https://images.pexels.com/photos/210557/pexels-photo-210557.jpeg?auto=compress&cs=tinysrgb&w=600',
+      6003: 'https://images.pexels.com/photos/1049302/pexels-photo-1049302.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      6011: 'https://images.pexels.com/photos/3312674/pexels-photo-3312674.jpeg?auto=compress&cs=tinysrgb&w=600',
+      6012: 'https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=600',
+      6013: 'https://images.pexels.com/photos/3614061/pexels-photo-3614061.jpeg?auto=compress&cs=tinysrgb&w=600',
+
+      6021: 'https://images.pexels.com/photos/1248583/pexels-photo-1248583.jpeg?auto=compress&cs=tinysrgb&w=600',
+      6022: 'https://images.pexels.com/photos/6326440/pexels-photo-6326440.jpeg?auto=compress&cs=tinysrgb&w=600',
+      6023: 'https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=600'
+    };
+
+    function buildProductsFromCategoryData(){
+      const products = [];
+      for(const catId in categoryData){
+        const cat = categoryData[catId];
+        for(const subId in cat.subcategories){
+          const sub = cat.subcategories[subId];
+          sub.products.forEach(prod=>{
+            products.push({
+              id: prod.id,
+              title: prod.name,
+              price: prod.price,
+              originalPrice: prod.originalPrice,
+              discount: prod.discount,
+              rating: prod.rating,
+              inStock: prod.inStock,
+              specs: prod.specs,
+              sizes: prod.sizes,
+              categoryId: catId,
+              subcategoryId: subId,
+              category: cat.name + ' / ' + sub.name,
+              description: prod.specs ? prod.specs : (prod.sizes ? 'Available sizes: ' + prod.sizes.join(', ') : ''),
+              image: productImages[prod.id] || 'https://via.placeholder.com/300x300.png?text=' + encodeURIComponent(prod.name)
+            });
+          });
+        }
+      }
+      return products;
+    }
+
+    // --- products & filters ---
+    const productListEl = document.getElementById('productList');
+    const headingEl = document.getElementById('productHeading');
+    const catSidebarEl = document.getElementById('categoryList');
+    const subTabsEl = document.getElementById('subcategories');
+
+    let selectedCategoryId = null;
+    let selectedSubcategoryId = null;
+
+    function renderProducts(list){
+      productListEl.innerHTML='';
+      if(!list.length){
+        productListEl.innerHTML='<div class="center muted" style="padding:60px; text-transform:uppercase; letter-spacing:1px; font-size:12px;">No items match your criteria.</div>';
+        return;
+      }
+      list.forEach(p=>{
+        const el=document.createElement('div');
+        el.className='card';
+        // Moved actions OUT of imgWrap and put them at the bottom
+        el.innerHTML = `
+          <div class="imgWrap">
+             <img src="${p.image}" alt="${p.title}" />
+          </div>
+          <div style="padding-top:8px; flex:1; display:flex; flex-direction:column;">
+              <div class="muted" style="font-size:10px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">${p.category}</div>
+              <div class="title" title="${p.title}">${p.title}</div>
+              <div class="price-row">
+                  <span style="font-weight:400; font-size:16px; color:var(--primary); font-family:var(--font-heading);">₹ ${p.price.toLocaleString()}</span>
+                  <span class="muted" style="font-size:12px; text-decoration:line-through; opacity:0.6;">₹ ${p.originalPrice.toLocaleString()}</span>
+              </div>
+              
+              <div class="actions">
+                <button class="authBtn" data-add="${p.id}">ADD TO CART</button>
+                <button class="ghost" data-view="${p.id}">DETAILS</button>
+             </div>
+          </div>`;
+        productListEl.appendChild(el);
+      });
+      productListEl.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const id=+b.getAttribute('data-view');
+        const p=allProducts.find(x=>x.id===id);
+        if(p) openModal(p);
+      }));
+      productListEl.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const id=+b.getAttribute('data-add');
+        const p=allProducts.find(x=>x.id===id);
+        if(p) addToCart(p);
+      }));
+    }
+
+    const allProducts = buildProductsFromCategoryData();
+
+    function renderCategorySidebar(){
+      catSidebarEl.innerHTML='';
+      // Add "All" option if desired, or just list cats
+      for(const catId in categoryData){
+        const cat = categoryData[catId];
+        const btn = document.createElement('button');
+        btn.className = 'catItem' + (catId === selectedCategoryId ? ' active' : '');
+        btn.innerHTML = `${cat.name}`;
+        btn.onclick = ()=>{
+          selectedCategoryId = catId;
+          selectedSubcategoryId = null;
+          renderCategorySidebar();
+          renderSubcategories();
+          updateView();
+        };
+        catSidebarEl.appendChild(btn);
+      }
+    }
+
+    function renderSubcategories(){
+      subTabsEl.innerHTML='';
+      if(!selectedCategoryId) return;
+      const cat = categoryData[selectedCategoryId];
+      const allBtn = document.createElement('button');
+      allBtn.className = 'subBtn' + (selectedSubcategoryId === null ? ' active' : '');
+      allBtn.textContent = 'View All';
+      allBtn.onclick = ()=>{
+        selectedSubcategoryId = null;
+        renderSubcategories();
+        updateView();
+      };
+      subTabsEl.appendChild(allBtn);
+      for(const subId in cat.subcategories){
+        const sub = cat.subcategories[subId];
+        const btn = document.createElement('button');
+        btn.className = 'subBtn' + (subId === selectedSubcategoryId ? ' active' : '');
+        btn.textContent = sub.name;
+        btn.onclick = ()=>{
+          selectedSubcategoryId = subId;
+          renderSubcategories();
+          updateView();
+        };
+        subTabsEl.appendChild(btn);
+      }
+    }
+
+    function getFilteredProducts(){
+      let list = allProducts;
+      if(selectedCategoryId){
+        list = list.filter(p=>p.categoryId === selectedCategoryId);
+        if(selectedSubcategoryId){
+          list = list.filter(p=>p.subcategoryId === selectedSubcategoryId);
+        }
+      }
+      return list;
+    }
+
+    function updateView(){
+      const list = getFilteredProducts();
+      let heading = 'All Products';
+      if(selectedCategoryId){
+        const cat = categoryData[selectedCategoryId];
+        heading = cat.name;
+        if(selectedSubcategoryId){
+          const sub = cat.subcategories[selectedSubcategoryId];
+          heading += ' — ' + sub.name;
+        }
+      }
+      headingEl.textContent = heading;
+      renderProducts(list);
+    }
+
+    renderCategorySidebar();
+    updateView();
+
+    // --- cart helpers ---
+    function getCart(){
+      return JSON.parse(localStorage.getItem('cart_v1')||'[]');
+    }
+
+    function setCart(items){
+      localStorage.setItem('cart_v1',JSON.stringify(items));
+      const counter = document.getElementById('cartCount');
+      if(counter) counter.innerText = items.length;
+      // mirror per-user cart if logged in
+      if(currentUser){
+        localStorage.setItem('cart_' + currentUser.uid, JSON.stringify(items));
+      }
+    }
+
+    function addToCart(p){
+      const c = getCart();
+      c.push(p);
+      setCart(c);
+      renderCart();
+      showToast('Item Added to Selection');
+    }
+
+    function renderCart(){
+      const list = document.getElementById('cartList');
+      const empty = document.getElementById('cartEmpty');
+      if(!list || !empty) return;
+
+      const items = getCart();
+      list.innerHTML = '';
+
+      if(items.length === 0){
+        empty.style.display = 'block';
+        return;
+      } else {
+        empty.style.display = 'none';
+      }
+
+      items.forEach((p,i)=>{
+        const el = document.createElement('div');
+        el.className='cartCard';
+        el.innerHTML = `
+          <div style="display:flex;gap:24px;align-items:center">
+            <img src="${p.image}" style="width:80px;height:80px;object-fit:cover;border:1px solid var(--border);"/>
+            <div>
+              <div style="font-family:var(--font-heading); font-size:18px; margin-bottom:4px;">${p.title}</div>
+              <div class="muted" style="color:var(--primary);">₹ ${p.price.toLocaleString()}</div>
+            </div>
+          </div>
+          <div><button class="ghost" data-remove="${i}" style="color:var(--text-muted); font-size:10px; border:none; padding:8px;">REMOVE</button></div>`;
+        list.appendChild(el);
+      });
+
+      list.querySelectorAll('[data-remove]').forEach(btn=>btn.addEventListener('click', ()=>{
+        const idx = +btn.getAttribute('data-remove');
+        const a = getCart();
+        a.splice(idx,1);
+        setCart(a);
+        renderCart();
+      }));
+    }
+
+    function showToast(msg){
+      const el = document.getElementById('toast');
+      if(!el) return;
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=>el.classList.remove('show'),2000);
+    }
+
+    function syncCartForUser(){
+      if(!currentUser) return;
+      const userKey = 'cart_' + currentUser.uid;
+      const local = getCart();
+      const remote = JSON.parse(localStorage.getItem(userKey) || '[]');
+
+      if(remote.length && !local.length){
+        setCart(remote);
+      } else if(local.length){
+        localStorage.setItem(userKey, JSON.stringify(local));
+      }
+
+      renderCart();
+    }
+
+    // checkout
+    document.getElementById('btnCheckout').addEventListener('click', ()=>{
+      alert('Checkout demo — hook this to your backend order API');
+    });
+
+    // clear cart
+    document.getElementById('btnClear').addEventListener('click', ()=>{
+      if(confirm('Clear selection?')){
+        setCart([]);
+        renderCart();
+      }
+    });
+
+    // navigation
+    document.getElementById('navHome').addEventListener('click', ()=>{
+      document.getElementById('view-cart').style.display='none';
+      document.getElementById('view-products').style.display='block';
+    });
+
+    document.getElementById('navCart').addEventListener('click', ()=>{
+      document.getElementById('view-products').style.display='none';
+      document.getElementById('view-cart').style.display='block';
+      renderCart();
+    });
+
+    // storage sync between tabs
+    window.addEventListener('storage', ()=>{
+      const counter = document.getElementById('cartCount');
+      if(counter) counter.innerText = getCart().length;
+      renderCart();
+    });
+
+    // initial cart render
+    setCart(getCart());
+    renderCart();
+  </script>
+
+  <div id="toast" class="toast"></div>
+</body>
+</html>
